@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 8px;
+}
+.tab {
+  border-radius: 100px;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #10100e;
+  font-weight: 700;
+  letter-spacing: -0.32px;
+  padding: 8px 15px 8px 8px;
+  cursor: pointer;
+  font-family: GreycBold;
+  opacity: 0.6;
+}
+.tab.active {
+  background-color: rgba(90, 88, 207, 0.15);
+  opacity: 1;
+}
+
+[data-tab="2"].tab.active {
+  background-color: #408bfc31;
+}
+[data-tab="3"].tab.active {
+  background-color: #4f62584b;
+}
+[data-tab="4"].tab.active {
+  background-color: #f9d27056;
+}
+[data-tab="5"].tab.active {
+  background-color: #fbdeca5a;
+}
+
+.tab-img-br {
+  margin-right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #5a58cf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+[data-tab="2"] .tab-img-br {
+  background-color: #408bfc;
+}
+[data-tab="3"] .tab-img-br {
+  background-color: #4f6258;
+}
+[data-tab="4"] .tab-img-br {
+  background-color: #f9d270;
+}
+[data-tab="5"] .tab-img-br {
+  background-color: #fbdeca;
+}
+.img-tab {
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 11.45px;
+  height: 14.64px;
+}
+.content {
+  display: none;
+  padding: 40px 24px;
+}
+.content.active {
+  display: block;
+}
+
+h1 {
+  margin-top: 80px;
+  font: 700 50px/50px GreycBold;
+}
+h3 {
+  margin-top: 24px;
+  font: 400 20px/30px GreycLight;
+}
+
+.svg-bg {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 500px;
+  z-index: -1;
+}
+.svg-dsctop-bg {
+  display: none;
+}
+
+.content-form {
+  z-index: 1;
+  border-radius: 8px;
+  border: 0px solid #5a58cf;
+  box-shadow: 0px 20px 40px 0px rgba(47, 47, 47, 0.2);
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 32px 24px;
+  margin-top: 50px;
+}
+.content-title {
+  display: flex;
+  gap: 12px;
+  font-size: 22px;
+  color: #10100e;
+  font-weight: 700;
+}
+
+.form-title {
+  font-family: GreycBold;
+  font-weight: 700;
+  font-size: 20px;
+  flex: 1;
+}
+.form-list {
+  display: flex;
+  margin-top: 24px;
+  gap: 8px;
+  padding: 0 5px;
+}
+.img-2 {
+  aspect-ratio: 1;
+  object-fit: auto;
+  object-position: center;
+  width: 16px;
+  align-self: start;
+  margin-top: 5px;
+}
+li {
+  font-family: GreycMedium;
+  flex: 1;
+  font-size: 14px;
+
+  list-style-type: none;
+}
+
+button {
+  font-family: GreycBold;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #10100e;
+  margin-top: 32px;
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.16px;
+  line-height: 110%;
+  padding: 13px 22px;
+}
+span {
+  align-self: center;
+  margin-top: 24px;
+  font: 14px GreycMedium;
+}
+.subtile-form {
+  font-family: GreycMedium;
+  margin: 15px 10px 24px;
+  text-align: start;
+  font-size: 14px;
+}
+
+.about {
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #fdf4db;
+  display: flex;
+  gap: 8px;
+  padding: 6px 12px;
+  align-items: center;
+}
+.about-name {
+  font-family: GreycBold;
+  font-size: 8px;
+}
+.box-about {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+@media (min-width: 992px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    padding: 0 80px 0px 130px;
+    justify-content: space-between;
+  }
+  .main-section {
+    max-width: 574px;
+  }
+  .tabs {
+    justify-content: flex-start;
+    max-width: 400px;
+  }
+  .svg-bg {
+    display: none;
+  }
+  .svg-dsctop-bg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 25%;
+    top: 0px;
+    z-index: -1;
+  }
+  .content-form {
+    margin-top: 0;
+  }
+  .box-about {
+    display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: space-around;
+  }
+  .about {
+  }
+  .about-name {
+    font-family: GreycBold;
+    font-size: 14px;
+  }
+  .content {
+    max-width: 452px;
+  }
+}
