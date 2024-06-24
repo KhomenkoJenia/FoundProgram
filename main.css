@@ -118,6 +118,7 @@ h3 {
 .content-title {
   display: flex;
   gap: 12px;
+  padding-left: 10px;
   font-size: 22px;
   color: #10100e;
   font-weight: 700;
@@ -126,7 +127,7 @@ h3 {
 .form-title {
   font-family: GreycBold;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   flex: 1;
 }
 .form-list {
