@@ -270,10 +270,7 @@ span:hover {
     height: 100vh;
     display: block;
   }
-  .content:hover {
-    transition: 1.1s ease-in;
-    transform: scale(1.1);
-  }
+
   .content-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -281,5 +278,11 @@ span:hover {
     gap: 10px;
     overflow-y: auto;
     height: 100vh;
+  }
+}
+@media (min-width: 1380px) {
+  .content:hover {
+    transition: 0.8s ease-in;
+    transform: scale(1.02);
   }
 }
