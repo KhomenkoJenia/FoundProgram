@@ -32,24 +32,6 @@ tabs.forEach((tab, index) => {
   });
 });
 
-contentsContainer.addEventListener("scroll", () => {
-  const containerRect = contentsContainer.getBoundingClientRect();
-  const containerCenterY = containerRect.top + containerRect.height / 2;
-
-  contents.forEach((content, index) => {
-    const contentRect = content.getBoundingClientRect();
-    const contentTop = contentRect.top;
-    const contentBottom = contentRect.bottom;
-
-    if (contentTop <= containerCenterY && contentBottom >= containerCenterY) {
-      if (currentTab !== index) {
-        currentTab = index;
-        switchTab(index);
-      }
-    }
-  });
-});
-
 function switchTab(index) {
   tabs.forEach((tab, i) => {
     tab.classList.toggle("active", i === index);

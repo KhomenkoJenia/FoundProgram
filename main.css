@@ -171,13 +171,13 @@ button {
   padding: 13px 22px;
 }
 button:hover {
-  background-color: #67bd89df;
+  background-color: #64d792df;
 
   color: #10100e;
   transition: 0.9s;
 }
 .content-form svg:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
   transition: 0.9s;
 }
 span {
@@ -189,6 +189,7 @@ span {
 span:hover {
   color: #f9d270;
   transition: 0.9s;
+  transform: scale(1.1);
 }
 .subtile-form {
   font-family: GreycMedium;
@@ -268,6 +269,10 @@ span:hover {
     max-width: 452px;
     height: 100vh;
     display: block;
+  }
+  .content:hover {
+    transition: 1.1s ease-in;
+    transform: scale(1.1);
   }
   .content-container {
     display: grid;
