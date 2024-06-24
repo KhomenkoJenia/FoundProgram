@@ -31,6 +31,10 @@ body {
   background-color: rgba(90, 88, 207, 0.15);
   opacity: 1;
 }
+.tab:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: filter 0.9s, box-shadow 0.9s;
+}
 
 [data-tab="2"].tab.active {
   background-color: #408bfc31;
@@ -78,6 +82,7 @@ body {
   display: none;
   padding: 40px 24px;
 }
+
 .content.active {
   display: block;
 }
@@ -113,7 +118,6 @@ h3 {
   width: 100%;
   flex-direction: column;
   padding: 32px 24px;
-  margin-top: 50px;
 }
 .content-title {
   display: flex;
@@ -166,10 +170,25 @@ button {
   line-height: 110%;
   padding: 13px 22px;
 }
+button:hover {
+  background-color: #67bd89df;
+
+  color: #10100e;
+  transition: 0.9s;
+}
+.content-form svg:hover {
+  transform: scale(1.2);
+  transition: 0.9s;
+}
 span {
   align-self: center;
   margin-top: 24px;
   font: 14px GreycMedium;
+  cursor: pointer;
+}
+span:hover {
+  color: #f9d270;
+  transition: 0.9s;
 }
 .subtile-form {
   font-family: GreycMedium;
@@ -196,12 +215,22 @@ span {
   flex-wrap: nowrap;
   gap: 8px;
 }
-@media (min-width: 992px) {
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 0.9s ease-in-out;
+}
+@media (min-width: 1200px) {
   body {
     display: flex;
     flex-direction: row;
     padding: 0 80px 0px 130px;
     justify-content: space-between;
+    overflow-y: hidden;
   }
   .main-section {
     max-width: 574px;
@@ -230,13 +259,22 @@ span {
 
     justify-content: space-around;
   }
-  .about {
-  }
+
   .about-name {
     font-family: GreycBold;
     font-size: 14px;
   }
   .content {
     max-width: 452px;
+    height: 100vh;
+    display: block;
+  }
+  .content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    overflow-y: auto;
+    height: 100vh;
   }
 }
