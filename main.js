@@ -3,7 +3,7 @@ const contents = document.querySelectorAll(".content");
 const svgPath = document.querySelector(".svg-path");
 const svgPathDesc = document.querySelector(".svg-path-desctop");
 const tabsContainer = document.querySelector(".tabs-container");
-const contentsContainer = document.querySelector(".contents-container");
+const contentsContainer = document.querySelector(".content-container");
 
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".content-magic");
@@ -22,30 +22,53 @@ tabsContainer.addEventListener("wheel", (event) => {
   } else {
     currentTab = (currentTab - 1 + tabs.length) % tabs.length;
   }
-  switchTab(currentTab);
+  switchTab(currentTab, true);
 });
 
 tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => {
     currentTab = index;
-    switchTab(index);
+    switchTab(index, true);
   });
 });
 
-function switchTab(index) {
+contentsContainer.addEventListener("scroll", () => {
+  const containerCenter =
+    contentsContainer.scrollTop + contentsContainer.clientHeight / 2;
+
+  contents.forEach((content, index) => {
+    const contentRect = content.getBoundingClientRect();
+    const containerRect = contentsContainer.getBoundingClientRect();
+    const contentCenter = contentRect.top + contentRect.height / 2;
+    const containerCenterY = containerRect.top + containerRect.height / 2;
+
+    if (
+      contentCenter >= containerRect.top &&
+      contentCenter <= containerRect.bottom
+    ) {
+      if (currentTab !== index) {
+        currentTab = index;
+        switchTab(index, false);
+      }
+    }
+  });
+});
+
+function switchTab(index, scrollToContent) {
   tabs.forEach((tab, i) => {
     tab.classList.toggle("active", i === index);
-    contents[i].classList.toggle("active", i === index);
   });
 
-  if (window.innerWidth >= 1024) {
-    contents[index].scrollIntoView({ behavior: "smooth", block: "center" });
-  } else {
-    tabs.forEach((tab, i) => {
-      contents[i].style.order = "";
-    });
-  }
+  contents.forEach((content, i) => {
+    content.classList.toggle("active", i === index);
+    if (scrollToContent && i === index) {
+      content.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
 
   svgPath.setAttribute("fill", colors[index]);
   svgPathDesc.setAttribute("fill", colors[index]);
 }
+
+// Initially set the first tab and content as active
+switchTab(currentTab, true);
